@@ -272,3 +272,16 @@ spec:
   ref: main
   ttl: 5000
 ```
+
+### Background: Import (the BYON way)
+
+For the phase 1 _Bring your own notebook (BYON)_ functionality, the ODH dashboard creates a `PipelineRun`.
+
+```mermaid
+flowchart LR
+    subgraph BYON Import
+        PR[/PipelineRun/]
+    end
+    O[ODH] ==> PR --> IS[/ImageStream/] -.-> JH[JupyterHub]
+    I[(Image)] -.-> PR & JH
+```
